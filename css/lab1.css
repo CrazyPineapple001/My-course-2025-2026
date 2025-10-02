@@ -1,13 +1,9 @@
-/* css/lab1.css — повністю відповідає ПЗ №2 */
+/* css/lab1.css — повністю відповідає завданню */
 
-/* Скидання та загальний стиль */
-* {
-  box-sizing: border-box;
-}
-
+/* Загальний стиль сторінки */
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom right, #e3f2fd, #f5f5f5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #f5f5f5);
   margin: 0;
   padding: 20px;
   min-height: 100vh;
@@ -16,37 +12,37 @@ body {
   align-items: center;
 }
 
-/* Форма — основний контейнер */
+/* Основна форма */
 form {
-  background-color: #ffffff;        /* a. фон */
+  background-color: #ffffff;        /* a. колір фону */
   color: #212121;                   /* a. колір тексту */
   width: 100%;
-  max-width: 350px;                 /* b. ширина */
+  max-width: 360px;                 /* b. ширина */
   padding: 28px;                    /* b. внутрішні відступи */
-  border-radius: 14px;              /* c. закруглені кути */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); /* d. тінь */
+  border-radius: 16px;              /* c. закруглені кути */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* d. тінь */
   position: relative;               /* e. позиціонування (relative) */
-  margin: 0 auto;                   /* центрування */
-  border: 1px solid #e0e0e0;        /* бордер */
+  margin: 0 auto;
+  border: 1px solid #e0e0e0;
 }
 
-/* Заголовок форми (якщо є) */
+/* Заголовок форми */
 form h2 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #1976d2;
+  margin-bottom: 24px;
+  color: #1565c0;
   font-size: 24px;
 }
 
-/* Селектор за тегом + клас */
+/* Селектор за тегом */
 label {
   display: block;
-  margin: 14px 0 6px;
-  font-weight: bold;
-  color: #424242;
+  margin: 16px 0 6px;
+  font-weight: 600;
+  color: #37474f;
 }
 
-/* Селектор за атрибутом — важливо для завдання! */
+/* Селектор за атрибутом — важливо! */
 input[type="text"],
 input[type="email"],
 input[type="tel"] {
@@ -55,10 +51,10 @@ input[type="tel"] {
   font-size: 16px;
   border: 2px solid #bdbdbd;
   border-radius: 8px;
-  transition: border-color 0.3s, box-shadow 0.3s; /* анімація */
+  transition: all 0.3s ease; /* анімація переходу */
 }
 
-/* Селектор :focus — псевдоклас */
+/* Псевдоклас :focus */
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus {
@@ -67,28 +63,28 @@ input[type="tel"]:focus {
   box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
 }
 
-/* Кнопка — стилізація посилання/кнопки */
+/* Кнопка — стилізація через селектор за атрибутом */
 input[type="submit"] {
   width: 100%;
-  padding: 12px;
-  background-color: #1976d2;
+  padding: 13px;
+  background: #1976d2;
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  margin-top: 16px;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* анімація */
+  margin-top: 20px;
+  transition: background 0.3s, transform 0.2s;
 }
 
-/* Ефект при наведенні — transition + transform */
+/* Ефект при наведенні — анімація */
 input[type="submit"]:hover {
-  background-color: #1565c0;
+  background: #1565c0;
   transform: translateY(-2px);
 }
 
-/* Унікальний елемент — приклад використання id (якщо є в HTML) */
-#special-field {
-  background-color: #f9f9ff;
+/* Приклад використання ID-селектора (для поля "Ім'я") */
+#name {
+  background-color: #f9fbff;
 }
