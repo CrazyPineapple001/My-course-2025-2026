@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота №2 - Основи CSS</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/lab1.css">
+    <link rel="stylesheet" href="css/css_essentials.css">
+</head>
+<body>
+    <header>
+        <h1>Практична робота №2 - Основи CSS</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="about.html">Про мене</a></li>
+                <li><a href="practices.html">Практичні роботи</a></li>
+                <li><a href="labs.html">Лабораторні заняття</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Форма реєстрації користувача</h2>
+        <p><a href="index.html">← Повернутися до списку лабораторних</a></p>
+
+        <!-- Форма реєстрації -->
+        <form action="https://webhook.site/198f9d3e-57af-4391-a89a-dfbc26adb393" method="POST" class="registration-form">
+            <!-- Ім'я -->
+            <div class="form-group">
+                <label for="first_name">Ім'я:</label>
+                <input type="text" id="first_name" name="first_name" required placeholder="Введіть ваше ім'я">
+            </div>
+
+            <!-- Прізвище -->
+            <div class="form-group">
+                <label for="last_name">Прізвище:</label>
+                <input type="text" id="last_name" name="last_name" required placeholder="Введіть ваше прізвище">
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Електронна пошта:</label>
+                <input type="email" id="email" name="email" required placeholder="example@gmail.com">
+            </div>
+
+            <!-- Пароль -->
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required placeholder="Мінімум 6 символів">
+            </div>
+
+            <!-- Підтвердження паролю -->
+            <div class="form-group">
+                <label for="confirm_password">Підтвердіть пароль:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Повторіть пароль">
+            </div>
+
+            <!-- Дата народження -->
+            <div class="form-group">
+                <label for="birthdate">Дата народження:</label>
+                <input type="date" id="birthdate" name="birthdate">
+            </div>
+
+            <!-- Стать -->
+            <div class="form-group">
+                <label for="gender">Стать:</label>
+                <select id="gender" name="gender">
+                    <option value="">Оберіть стать</option>
+                    <option value="male">Чоловік</option>
+                    <option value="female">Жінка</option>
+                    <option value="other">Інше</option>
+                </select>
+            </div>
+
+            <!-- Умови -->
+            <div class="form-group form-checkbox">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">Я приймаю умови користування</label>
+            </div>
+
+            <!-- Кнопки -->
+            <div class="form-buttons">
+                <input type="submit" value="Зареєструватися" class="btn btn-primary">
+                <input type="reset" value="Очистити" class="btn btn-secondary">
+            </div>
+        </form>
+
+    </main>
+
+   <footer>
+        <p>© 2025 Ірина Кравченко | Навчання: 2022–2026</p>
+        <p>
+            <a href="https://github.com/CrazyPineapple001" target="_blank">GitHub</a> |
+            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
+            <a href="https://t.me/Twilight_Sparkle_26" target="_blank">Telegram</a>
+        </p>
+        <p><a href="https://github.com/CrazyPineapple001/My-course-2025-2026" target="_blank">Репозиторій на GitHub</a></p>
+    </footer>
+</body>
+
+</html>
