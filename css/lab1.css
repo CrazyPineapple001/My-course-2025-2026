@@ -1,16 +1,7 @@
 /* css/lab1.css — стилізація форми в єдиному стилі з index.html */
 
 /* Успадковуємо базові стилі з styles.css */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #ecf0f1;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+
 
 /* Контейнер форми — як картка календаря */
 form {
