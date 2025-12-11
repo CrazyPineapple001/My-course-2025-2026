@@ -8,39 +8,256 @@ body {
     font-family: "Roboto", sans-serif;
     height: 100vh;
     overflow: hidden;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 }
 
 .scene {
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    background: radial-gradient(circle at top right, #1e3c72, #0f2027), 
+                radial-gradient(circle at bottom left, #2c5364, #0f2027);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
 }
 
-.scene__snow {
+/* Мерехтливі зірки */
+.scene::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(2px 2px at 10% 20%, #fff, transparent),
+        radial-gradient(2px 2px at 30% 40%, #fff, transparent),
+        radial-gradient(2px 2px at 70% 60%, #fff, transparent),
+        radial-gradient(2px 2px at 80% 10%, #fff, transparent),
+        radial-gradient(1px 1px at 20% 80%, #fff, transparent),
+        radial-gradient(1px 1px at 90% 70%, #fff, transparent);
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* Контейнер для сніжинок */
+.snowflakes {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect x='13' y='10' width='4' height='10' fill='%23ffffff'/%3E%3Crect x='10' y='13' width='10' height='4' fill='%23ffffff'/%3E%3Ccircle cx='15' cy='15' r='1' fill='%23ffffff'/%3E%3C/svg%3E");
-    background-size: 50px 50px;
-    background-repeat: repeat;
-    animation: snow 10s linear infinite;
 }
 
-.scene__snow--layer2 {
-    animation-duration: 18s;
-    opacity: 0.4;
-    background-size: 80px 80px;
-    background-repeat: repeat;
-    filter: blur(1px);
+/* Загальний стиль для сніжинки */
+.snowflake {
+    position: absolute;
+    top: -50px;
+    color: #fff;
+    user-select: none;
+    pointer-events: none;
+    font-size: 1em;
+    animation: fall 10s linear infinite;
 }
 
+/* Сніжинка 1 */
+.snowflake:nth-child(1) {
+    left: 5%;
+    font-size: 0.8em;
+    animation-duration: 8s;
+    --x-offset: 15vw;
+    --rotation: 180deg;
+}
+
+/* Сніжинка 2 */
+.snowflake:nth-child(2) {
+    left: 15%;
+    font-size: 1.2em;
+    animation-duration: 6s;
+    --x-offset: -20vw;
+    --rotation: 360deg;
+}
+
+/* Сніжинка 3 */
+.snowflake:nth-child(3) {
+    left: 25%;
+    font-size: 0.6em;
+    animation-duration: 10s;
+    --x-offset: 10vw;
+    --rotation: 90deg;
+}
+
+/* Сніжинка 4 */
+.snowflake:nth-child(4) {
+    left: 35%;
+    font-size: 1.0em;
+    animation-duration: 7s;
+    --x-offset: -15vw;
+    --rotation: 270deg;
+}
+
+/* Сніжинка 5 */
+.snowflake:nth-child(5) {
+    left: 45%;
+    font-size: 0.9em;
+    animation-duration: 9s;
+    --x-offset: 25vw;
+    --rotation: 45deg;
+}
+
+/* Сніжинка 6 */
+.snowflake:nth-child(6) {
+    left: 55%;
+    font-size: 1.1em;
+    animation-duration: 5s;
+    --x-offset: -10vw;
+    --rotation: 315deg;
+}
+
+/* Сніжинка 7 */
+.snowflake:nth-child(7) {
+    left: 65%;
+    font-size: 0.7em;
+    animation-duration: 11s;
+    --x-offset: 30vw;
+    --rotation: 135deg;
+}
+
+/* Сніжинка 8 */
+.snowflake:nth-child(8) {
+    left: 75%;
+    font-size: 1.3em;
+    animation-duration: 6.5s;
+    --x-offset: -25vw;
+    --rotation: 225deg;
+}
+
+/* Сніжинка 9 */
+.snowflake:nth-child(9) {
+    left: 85%;
+    font-size: 0.5em;
+    animation-duration: 8.5s;
+    --x-offset: 20vw;
+    --rotation: 0deg;
+}
+
+/* Сніжинка 10 */
+.snowflake:nth-child(10) {
+    left: 95%;
+    font-size: 1.0em;
+    animation-duration: 7.5s;
+    --x-offset: -30vw;
+    --rotation: 180deg;
+}
+
+/* Сніжинка 11 */
+.snowflake:nth-child(11) {
+    left: 12%;
+    font-size: 1.1em;
+    animation-duration: 8.2s;
+    --x-offset: 22vw;
+    --rotation: 100deg;
+}
+
+/* Сніжинка 12 */
+.snowflake:nth-child(12) {
+    left: 22%;
+    font-size: 0.65em;
+    animation-duration: 9.5s;
+    --x-offset: -18vw;
+    --rotation: 200deg;
+}
+
+/* Сніжинка 13 */
+.snowflake:nth-child(13) {
+    left: 32%;
+    font-size: 0.95em;
+    animation-duration: 6.8s;
+    --x-offset: 12vw;
+    --rotation: 300deg;
+}
+
+/* Сніжинка 14 */
+.snowflake:nth-child(14) {
+    left: 42%;
+    font-size: 0.75em;
+    animation-duration: 10.5s;
+    --x-offset: -28vw;
+    --rotation: 50deg;
+}
+
+/* Сніжинка 15 */
+.snowflake:nth-child(15) {
+    left: 52%;
+    font-size: 1.05em;
+    animation-duration: 7.7s;
+    --x-offset: 18vw;
+    --rotation: 150deg;
+}
+
+/* Сніжинка 16 */
+.snowflake:nth-child(16) {
+    left: 62%;
+    font-size: 0.85em;
+    animation-duration: 9.2s;
+    --x-offset: -14vw;
+    --rotation: 250deg;
+}
+
+/* Сніжинка 17 */
+.snowflake:nth-child(17) {
+    left: 72%;
+    font-size: 1.15em;
+    animation-duration: 6.3s;
+    --x-offset: 26vw;
+    --rotation: 350deg;
+}
+
+/* Сніжинка 18 */
+.snowflake:nth-child(18) {
+    left: 82%;
+    font-size: 0.55em;
+    animation-duration: 8.8s;
+    --x-offset: -22vw;
+    --rotation: 70deg;
+}
+
+/* Сніжинка 19 */
+.snowflake:nth-child(19) {
+    left: 92%;
+    font-size: 0.9em;
+    animation-duration: 7.3s;
+    --x-offset: 16vw;
+    --rotation: 290deg;
+}
+
+/* Сніжинка 20 */
+.snowflake:nth-child(20) {
+    left: 3%;
+    font-size: 1.25em;
+    animation-duration: 10.2s;
+    --x-offset: -12vw;
+    --rotation: 230deg;
+}
+
+/* Анімація падіння */
+@keyframes fall {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) translateX(var(--x-offset)) rotate(var(--rotation));
+    }
+}
+
+/* Картка */
 .card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -51,17 +268,24 @@ body {
     max-width: 400px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     z-index: 10;
-    transition: transform 0.3s ease;
+    animation: float 4s ease-in-out infinite;
 }
 
-.card:hover {
-    transform: translateY(-10px);
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
 }
 
 .card__decoration {
     font-size: 60px;
     margin-bottom: 20px;
-    animation: wiggle 2s ease-in-out infinite;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .card__title {
@@ -69,7 +293,8 @@ body {
     font-size: 48px;
     color: #ffffff;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 
+                 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .card__text {
@@ -80,7 +305,7 @@ body {
 }
 
 .card__button {
-    background-color: #ff4757;
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
     color: #ffffff;
     border: none;
     padding: 12px 24px;
@@ -88,30 +313,12 @@ body {
     border-radius: 50px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
 }
 
 .card__button:hover {
-    background-color: #ff6b81;
+    background: linear-gradient(45deg, #ff6b81, #ff8fa3);
+    transform: scale(1.05);
+    box-shadow: 0 7px 20px rgba(255, 71, 87, 0.6);
 }
-
-@keyframes snow {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 100px 1000px;
-    }
-}
-
-@keyframes wiggle {
-    0%, 100% {
-        transform: rotate(-10deg);
-    }
-    50% {
-        transform: rotate(10deg);
-    }
-}
-
-/*# sourceMappingURL=lab7.css.map */
