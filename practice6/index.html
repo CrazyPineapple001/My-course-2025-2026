@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЛР6: Анімація зі спрайтами Покемонів</title>
+  <link rel="stylesheet" href="css/practice6.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="header-title">
+    <h1>Лабораторна робота №6<br>Анімація зі спрайтами Покемонів</h1>
+  </div>
+
+  <nav class="navigation">
+    <ul>
+      <li><a href="../practice1/index.html">Головна</a></li>
+      <li><a href="#pikachu">Пікачу</a></li>
+      <li><a href="#charizard">Чарізард</a></li>
+      <li><a href="#jolteon">Джолтіон</a></li>
+      <li><a href="#bulbasaur">Бульбазавр</a></li>
+    </ul>
+  </nav>
+
+  <div class="scene">
+    <div class="sky"></div>
+    <div class="clouds"></div>
+    <div class="mountains"></div>
+    <div class="pokemon-container">
+      <div class="pokemon" id="pikachu"></div>
+      <div class="pokemon" id="charizard"></div>
+      <div class="pokemon" id="jolteon"></div>
+      <div class="pokemon" id="bulbasaur"></div>
+    </div>
+    <div class="flash"></div>
+    
+    <label class="toggle-control">
+      <input type="checkbox" id="anim-toggle" checked>
+      <span>⏸️ Зупинити анімацію</span>
+    </label>
+  </div>
+
+  <script>
+    document.getElementById('anim-toggle').addEventListener('change', function() {
+      document.querySelector('.scene').classList.toggle('paused', !this.checked);
+    });
+  </script>
+
+</body>
+</html>

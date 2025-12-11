@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+}
+
+.header-title {
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff0;
+  animation: titleGlow 3s infinite alternate;
+}
+
+@keyframes titleGlow {
+  to { text-shadow: 0 0 20px #fff, 0 0 40px #ff0, 0 0 60px #f0f; }
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  background: rgba(0,0,0,0.6);
+  padding: 8px 16px;
+  border-radius: 30px;
+}
+
+.navigation a {
+  color: #ff0;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.navigation a:hover {
+  background: #ff0;
+  color: #000;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scene.paused .pokemon,
+.scene.paused .sky,
+.scene.paused .clouds,
+.scene.paused .mountains,
+.scene.paused .flash {
+  animation-play-state: paused !important;
+}
+
+.sky {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to bottom, #1a2a6c, #3a6696);
+  animation: skyPulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes skyPulse {
+  0% { background: linear-gradient(to bottom, #1a2a6c, #3a6696); }
+  50% { background: linear-gradient(to bottom, #2a3a8c, #4a76aa); }
+  100% { background: linear-gradient(to bottom, #1a2a6c, #3a6696); }
+}
+
+.clouds {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  height: 20%;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='20' r='12' fill='%23fff'/%3E%3Ccircle cx='50' cy='20' r='15' fill='%23fff'/%3E%3Ccircle cx='70' cy='20' r='10' fill='%23fff'/%3E%3C/svg%3E");
+  background-size: 200px 40px;
+  animation: scrollClouds 40s linear infinite;
+}
+
+.mountains {
+  position: absolute;
+  bottom: 30%;
+  width: 100%;
+  height: 30%;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 L40,20 L80,40 L120,10 L160,30 L200,20 L200,50 Z' fill='%232c1a0f'/%3E%3C/svg%3E");
+  background-size: 200px 50px;
+  animation: scrollMountains 80s linear infinite;
+}
+
+@keyframes scrollClouds { to { background-position: -200px 0; } }
+@keyframes scrollMountains { to { background-position: -200px 0; } }
+
+.pokemon-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.pokemon {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#pikachu {
+  background-image: url('https://img.pokemondb.net/sprites/scarlet-violet/icon/pikachu.png');
+  animation: runCircle 12s linear infinite, trail 0.3s infinite;
+  transform-origin: 200px 200px;
+}
+@keyframes runCircle {
+  to { transform: rotate(360deg) translate(150px) rotate(-360deg); }
+}
+@keyframes trail {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,0,0.5); }
+  50% { box-shadow: 0 0 12px 6px rgba(255,215,0,0.9); }
+}
+
+#charizard {
+  background-image: url('https://img.pokemondb.net/sprites/scarlet-violet/icon/charizard.png');
+  animation: float 5s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+}
+
+#jolteon {
+  background-image: url('https://img.pokemondb.net/sprites/scarlet-violet/icon/jolteon.png');
+  left: 300px;
+  animation: spin 4s linear infinite, zap 1.2s infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes zap {
+  0%, 90% { filter: brightness(1); }
+  95% { filter: brightness(2.2) contrast(1.4); }
+  100% { filter: brightness(1); }
+}
+
+#bulbasaur {
+  background-image: url('https://img.pokemondb.net/sprites/scarlet-violet/icon/bulbasaur.png');
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  animation: 
+    grow 6s ease-in-out infinite alternate,
+    pulse 2s infinite;
+}
+
+@keyframes grow {
+  0% { transform: translateX(-50%) scale(1); }
+  100% { transform: translateX(-50%) scale(1.3); }
+}
+
+@keyframes pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.2) contrast(1.1); }
+}
+
+.pokemon:hover {
+  z-index: 100;
+  animation-play-state: paused !important;
+  transform: scale(1.3) !important;
+  filter: brightness(1.4);
+}
+
+.flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  animation: globalFlash 8s infinite;
+}
+@keyframes globalFlash {
+  0%, 99% { opacity: 0; }
+  99.5% { opacity: 0.15; }
+  100% { opacity: 0; }
+}
+
+.toggle-control {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(0,0,0,0.6);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #ff0;
+}
+.toggle-control input { display: none; }
